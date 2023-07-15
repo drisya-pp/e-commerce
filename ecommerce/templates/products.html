@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="p-2"></div>
+<div>
+    <img src="{{c.image.url}}" height="400px" width="100%">
+</div >
+<div style="margin-bottom:100px;">
+<h1 class="text-center"></h1>
+<p class="text-justify "></p>
+</div>
+<div class="container" style="margin-bottom:100px">
+ <div class="row mx-auto">
+{% for i in p %}
+     <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+  <img src="{{i.image.url}}" class="card-img-top" style="height:200px;width:100%" alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <a href="{% url 'shop:prodetail' i.slug %}" class="btn btn-primary link">Details</a>
+  </div>
+</div>
+ </div>
+{% endfor %}
+ </div>
+</div>
+{% endblock %}
+
+

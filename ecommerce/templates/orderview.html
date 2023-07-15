@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container p-3" style="margin-bottom:150px">
+    <div class="row mx-auto">
+        <h3>Name of the customer:{{name}}</h3>
+        {% for x in o %}
+        <div class="col-sm-5" style="border:1px solid gray">
+        <img src="{{x.products.image.url}}" height="150px" width="150" alt="{{x.products.image.url}}">
+        </div>
+    <div class="col-sm-5" style="border:1px solid gray">
+         Delivery Address:{{x.address}}<br>
+        Phone Number:{{x.phone}}<br>
+        {{x.products.name}}<br>
+        {{x.products.price}}<br>
+        Quantity Ordered:{{x.noofitems}}<br>
+        SubTotal:{{x.subtotal}}<br>
+        <strong>Ordered on{{x.date_added}}</strong><br>
+        <strong>Delivery Status:{{x.delivery_status}}</strong>
+        </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
